@@ -3,5 +3,5 @@ set disassembly-flavor intel
 b*exit_here
 r
 x/ub &age
-x/uh &days
+x/uw &days
 x/ug &hours

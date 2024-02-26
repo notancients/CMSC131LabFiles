@@ -5,7 +5,7 @@ global _start
 section .data
     SYS_EXIT equ 60
     
-    age dw 1
+    age db 1
     daysInYear dw 365
     hoursInDay dd 24
 
@@ -18,7 +18,9 @@ _start:
 
     ; solve for days
     ; days = age * daysInYear
-    mov ax, word[age]
+    mov ah, 0
+    mov al, byte[age]
+    ; by this point ax is just age with 0 in front
     mul word[daysInYear]
     mov word[days], ax
     mov word[days+2], dx
@@ -29,7 +31,7 @@ _start:
     
     ; solve for hours using days
     ; hours = days * hoursInDay
-    mov eax, dword[days] ; typecast into a double word, to avoid size mismatch
+    mov eax, dword[days]
     mul dword[hoursInDay]
     mov dword[hours], eax
     mov dword[hours+4], edx
