@@ -1,0 +1,7 @@
+file exe
+set disassembly-flavor intel
+b*exit_here
+r
+x/ub &age
+x/uw &days
+x/ug &hours
