@@ -21,10 +21,8 @@ _start:
         mov byte[largestInput], "A"
         mov bl, byte[a]
         mov byte[largestNum], bl
-    
-    ; setup al for comparison
-    mov al, byte[a]
-
+        mov al, byte[a]         ; setup al for comparison
+        
     ; line for comparing a to b
     compare_b:
         cmp al, byte[b]
@@ -41,19 +39,18 @@ _start:
 
 
 b_is_larger:
-    mov byte[largestInput], "B"
-    mov bl, byte[b]
-    mov byte[largestNum], bl
-    mov al, byte[b]
+    mov byte[largestInput], "B" ; assign char B
+    mov bl, byte[b]             ; move to to register for variable assignment
+    mov byte[largestNum], bl    ; assign value of b to largest num
+    mov al, byte[b]             ; assign value of b to al for comparison
 
     ; jump to compare_c since we still haven't compared the last variable
     jmp compare_c
 
 c_is_larger:
-    mov byte[largestInput], "C"
-    mov bl, byte[c]
-    mov byte[largestNum], bl
-    mov al, byte[c]
+    mov byte[largestInput], "C" ; assign char C
+    mov bl, byte[c]             ; move to register for variable assignment
+    mov byte[largestNum], bl    ; assign value of c to largestNum
 
     ; not really needed but this makes easier to read
     jmp exit_here
