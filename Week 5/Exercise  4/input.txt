@@ -1,0 +1,6 @@
+file exe
+set disassembly-flavor intel
+b*exit_here
+r
+x/ub &num
+x/ub &isPrime
